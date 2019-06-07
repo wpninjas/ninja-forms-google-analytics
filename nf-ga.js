@@ -15,7 +15,10 @@ var myGoogleAnalyticsController = Marionette.Object.extend( {
     triggerEvent: function( formTitle ) {
         console.log( 'trigger' );
         try {
-            ga('send', 'event', 'form', 'submit', formTitle );
+            gtag('event', 'submit', {
+                'event_category': 'form',
+                'event_label': formTitle
+            });
         } catch ( err ) {
             console.log( err );
         }
